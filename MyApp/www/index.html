@@ -35,10 +35,33 @@
     <script src="js/services.js"></script>
   </head>
   <body ng-app="starter">
+  <ion-pane>
+  <ion-header-bar class="bar-dark">
+    <h2 class="title">Artist List</h2>
+  </ion-header-bar>
+  <div class="bar bar-subheader item-input-inset bar-light">
+    <label class="item-input-wrapper">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input type="search" placeholder="Search">
+    </label>
+  </div>
+  <ion-content class="has-subheader">
+    <ion-list>
+      <ion-item class="item-thumbnail-left item-text-wrap">
+        <img src="http://placehold.it/100x100" alt="Photo">
+        <h2>Name</h2>
+        <h3>Reknown</h3>
+        <p>Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem
+            Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem
+            Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem
+            Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
     <!--
       The nav bar that will be updated as we navigate between views.
     -->
-    <ion-pane>
+  <!--  <ion-pane>
       <ion-header-bar class="bar-positive">
        <button class="icon ion-navicon button button-clear"></button>
         <h1 class="title">Ionic Blank Starter</h1>
@@ -62,7 +85,7 @@
               <input type="text" placeholder="Your Last Name">
             </label>
 
-            <!--<div class="item item-divider">I want to be a...</div>
+            <div class="item item-divider">I want to be a...</div>
             <div class="item item-checkbox checkbox-energized">
               <label class="checkbox">
                 <input type="checkbox">
@@ -99,7 +122,7 @@
                 <i class="radio-icon ion-social-youtube"></i>
              </label>-->
 
-             <div class="item item-toggle">
+             <!--<div class="item item-toggle">
                <span class="input-label">Awesomeness</span>
                <label class="toggle">
                  <input type="checkbox">
@@ -124,7 +147,7 @@
              </label>
 
           </div>
-      </ion-content>
+      </ion-content>-->
 
       <!--<ion-content>
         <div class="list">
