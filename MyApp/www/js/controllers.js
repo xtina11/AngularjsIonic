@@ -21,6 +21,12 @@ angular.module('starter.controllers', [])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
+/*.controller('ListController', [$scope, $http, function($scope, $http){
+  $http.get('js/data.json').success(function(data){
+    $scope.artists = data;
+  })
+}]);*/
+
 .controller('AccountCtrl', function($scope) {
   $scope.settings = {
     enableFriends: true
