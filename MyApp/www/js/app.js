@@ -105,28 +105,27 @@ angular.module('starter', ['ionic'])
 
 
 
-.controller('CalendarController', ['$scope', '$http', '$state', function($scope, $http, $state){
-  $http.get('js/data.json').success(function(data){
-    $scope.calendar = data.calendar;
-   
+.controller('CalendarController', ['$scope', '$http', '$state',
+    function($scope, $http, $state) {
+    $http.get('js/data.json').success(function(data) {
+      $scope.calendar = data.calendar;
 
-    $scope.onItemDelete = function(dayIndex, item){
-      $scope.calendar[dayIndex].schedule.splice($scope.calendar[dayIndex]
-        .schedule.indexOf(item), 1);
-    }
+      $scope.onItemDelete = function(dayIndex, item) {
+        $scope.calendar[dayIndex].schedule.splice($scope.calendar[dayIndex].schedule.indexOf(item), 1);
+      }
 
-    $scope.doRefresh = function(){
-      $http.get('js/data.json').success(function(data){
-        $scope.calendar = data.calendar;
-        $scope.$broadcast('scroll.refreshComplete');
-      });
-    }
+      $scope.doRefresh =function() {
+      $http.get('js/data.json').success(function(data) {
+          $scope.calendar = data.calendar;
+          $scope.$broadcast('scroll.refreshComplete');
+        });
+      }
 
-    $scope.toggleStar = function(item){
-      item.star = !item.star;
-    }
+      $scope.toggleStar = function(item) {
+        item.star = !item.star;
+      };
 
-   
-  });
-}]);
+    });
+}])
+
 
