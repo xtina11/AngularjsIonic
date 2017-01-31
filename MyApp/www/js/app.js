@@ -60,11 +60,19 @@ angular.module('starter', ['ionic'])
       }
     })
 
+    .state('tabs.calendar', {
+      url: '/calendar',
+      views: {
+        'calendar-tab' : {
+          templateUrl: 'templates/calendar.html',
+          controller: 'CalendarController'
+        }
+      }
+    })
+
     $urlRouterProvider.otherwise('/tab/home');
 
 })
-
-
 
 .controller('ListController', ['$scope', '$http', '$state', function($scope, $http, $state){
   $http.get('js/data.json').success(function(data){
@@ -91,6 +99,34 @@ angular.module('starter', ['ionic'])
       $scope.artists.splice(fromIndex, 1);
       $scope.artists.splice(toIndex, 0, item);
     };
+  });
+}])
+
+
+
+
+.controller('CalendarController', ['$scope', '$http', '$state', function($scope, $http, $state){
+  $http.get('js/data.json').success(function(data){
+    $scope.calendar = data.calendar;
+   
+
+    $scope.onItemDelete = function(dayIndex, item){
+      $scope.calendar[dayIndex].schedule.splice($scope.calendar[dayIndex]
+        .schedule.indexOf(item), 1);
+    }
+
+    $scope.doRefresh = function(){
+      $http.get('js/data.json').success(function(data){
+        $scope.calendar = data.calendar;
+        $scope.$broadcast('scroll.refreshComplete');
+      });
+    }
+
+    $scope.toggleStar = function(item){
+      item.star = !item.star;
+    }
+
+   
   });
 }]);
 
